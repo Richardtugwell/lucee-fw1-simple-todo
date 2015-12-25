@@ -30,11 +30,11 @@ component {
             // create your FW/1 application:
             request._framework_one = new app.MyApplication({
 				base : "/app/fw1/" ,
-				dilocations : '../app/services,../app/lib',
+				dilocations : '/app/services,/app/lib',
 				unhandledPaths : '/angular',
 				framework.trace: true,
+				reloadApplicationOnEveryRequest : true,
 		        generateSES : true,
-				SESOmitIndex = true,
 				routes = [
 				  { "$GET/todo/:id" = "/main/get/id/:id" },
 				  { "$GET/todo/" = "/main/list" },

@@ -17,7 +17,7 @@
 		<to last="true">/index.cfm</to>
 	</rule>
 
-    <rule enabled="true">
+    <rule enabled="false">
 		<note>search engine friendly urls for cf frameworks</note>
 		<condition type="request-filename" operator="notfile" />
 		<from>^(.*)$</from>
