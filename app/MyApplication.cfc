@@ -1,8 +1,6 @@
 component extends="framework.one" {
 
-	function setupApplication()
-
-	{
+	function setupApplication() {
 
 		application.rb = getbeanfactory().getBean("javaRB");
 
@@ -15,6 +13,7 @@ component extends="framework.one" {
 		request.context.page["title"] = "Default Page";
         if (structKeyexists(URL,"trace")) {
 		framework.trace = true;
+		dump(var:framework);abort;
 		}
 
     }
@@ -31,14 +30,9 @@ component extends="framework.one" {
 			writeOutput( '<h2>#exception.message#</h2>' );
 			writeOutput( '<p>#exception.detail# (#exception.type#)</p>' );
 			dumpException(exception);
-//			dumpException(session);
-	//		dumpException(request);
+			//	dumpException(session);
+			//	dumpException(request);
 
 	}
-
-	function loggedIn(  ) { return structKeyExists(session , "IDaccount") } ;
-
-	//function getURL( action ) { return "http://" & CGI.http_host & buildURL( action ) } ;
-
 
 }

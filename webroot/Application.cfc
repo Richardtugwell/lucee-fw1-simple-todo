@@ -32,6 +32,7 @@ component {
 				base : "/app/fw1/" ,
 				dilocations : '/app/services,/app/lib',
 				unhandledPaths : '/angular',
+				framework.trace: true,
 		        generateSES : true,
 				SESOmitIndex = true,
 				routes = [
@@ -39,7 +40,6 @@ component {
 				  { "$GET/todo/" = "/main/list" },
 				  { "$DELETE/todo/:id" = "/main/delete/id/:id" },
 				  { "$POST/todo/" = "/main/save" },
-				  { "$GET/test/" = "/main/test" },
 				  { "$GET/*" = "/main/default/" },
 				  { "*" = "/main/default/" }
 				]

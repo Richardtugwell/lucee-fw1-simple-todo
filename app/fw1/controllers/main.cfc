@@ -35,14 +35,4 @@ component accessors = true {
 
 	}
 
-	public void function test( ) {
-
-		framework.renderdata( "JSON" , todoservice.test() );
-
-	}
-	public void function cloud( ) {
-
-		framework.renderdata( "JSON" , entityLoad("cloud") );
-
-	}
 }
