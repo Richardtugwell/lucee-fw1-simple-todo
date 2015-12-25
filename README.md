@@ -1,17 +1,13 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/55a9c89e306535002000016f/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55a9c89e306535002000016f)
 
-##Lucee Application Template for Heroku
-Blank application template to deploy Lucee 4.5.x (CFML/Java) apps on Heroku.
-
-**NOTE:** Lucee 5 version of this project available at [https://github.com/writecodedrinkcoffee/lucee5-heroku](https://github.com/writecodedrinkcoffee/lucee5-heroku)
+##Simple ToDo app using Lucee / FW1 / AngularJS / Bootstrap for deployment on Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Demo: [https://lucee.herokuapp.com/](https://lucee.herokuapp.com/)
 
 ####Credits/Notes:
-This uses Mike Spragues began as a fork of Chris Blackwell's [railo-heroku-template](https://github.com/d1rtym0nk3y/railo-heroku-template) project. Recently, after [converting my fork of that project to Lucee](https://github.com/writecodedrinkcoffee/lucee-heroku-template/tree/905e19a9d863c504a86cd6a764a7a33805649546), I 
-This began as a fork of Chris Blackwell's [railo-heroku-template](https://github.com/d1rtym0nk3y/railo-heroku-template) project. Recently, after [converting my fork of that project to Lucee](https://github.com/writecodedrinkcoffee/lucee-heroku-template/tree/905e19a9d863c504a86cd6a764a7a33805649546), I decided it had diverged enough to become it's own project and moved it to this repo. Many thanks to Chris for all of his original work and for inspiring this updated project for Lucee applications.
+This began as a fork of Mike Sprague's [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
 
 This project uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/lucee/) Maven repo maintained by [Denny Valliant](https://github.com/denuno). Many thanks to Denny for his work maintaining cfmlprojects.org.
 
