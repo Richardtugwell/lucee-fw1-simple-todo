@@ -5,7 +5,6 @@ component {
 	this.applicationTimeout=CreateTimeSpan(2,0,0,0);
 	this.sessionTimeout=CreateTimeSpan(0,1,0,0);
 	this.mappings["framework"] = expandpath("../framework");
-	this.mappings["app"] = expandpath("../app");
 	this.datasources["todos"] = {
 	  class: 'org.hsqldb.jdbcDriver',
 	  connectionString: 'jdbc:hsqldb:file:./db/todos'
@@ -29,8 +28,8 @@ component {
 
             // create your FW/1 application:
             request._framework_one = new app.MyApplication({
-				base : "../app/fw1/" ,
-				dilocations : '../app/services,../app/lib',
+				base : "/app/fw1/" ,
+				dilocations : '/app/services,/app/lib',
 				unhandledPaths : '/angular',
 				framework.trace: true,
 				reloadApplicationOnEveryRequest : true,
