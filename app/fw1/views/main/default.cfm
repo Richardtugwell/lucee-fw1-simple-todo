@@ -43,7 +43,7 @@
 		</div>
 	</div>
 </div>
-<script src="/js/angular.min.js" type="text/javascript"></script>
+<script src="/angular/angular.min.js" type="text/javascript"></script>
 <script>
 
 angular
