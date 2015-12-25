@@ -4,38 +4,18 @@ component extends="framework.one" {
 
 	{
 
-		application.utils = getbeanfactory().getBean("utils");
 		application.rb = getbeanfactory().getBean("javaRB");
-        application.authrules = getBeanfactory().getBean( "authorisation" ).getRules();
 
 	}
 
 	function setupRequest() {
-	header name='Access-Control-Allow-Origin' value='*' ;
 
-		variables.utils = application.utils;
 		request.context.page = structNew();
  		variables.rb = application.rb;
 		request.context.page["title"] = "Default Page";
         if (structKeyexists(URL,"trace")) {
 		framework.trace = true;
 		}
-
-        if (structKeyExists( session , "IDaccount" ) ) {
-
-		var userPermissions = 3;
-        }
-        else
-        {
-        var userPermissions = 1;
-        }
-			request.context.authstuff = getBeanfactory().getBean( "authorisation" ).authorise( userPermissions = userPermissions , resource = getSection()  );
-			//dump(var:request.context.authstuff);abort;
-			if ( !getBeanfactory().getBean( "authorisation" ).authorise( userPermissions = userPermissions , resource = getSection()  ).authorised )
-	        {
-				request.context.targetPage = getfullyqualifiedaction();
-				redirect("main.registerform" , "targetPage");
-			}
 
     }
 

@@ -6,6 +6,23 @@ component {
 	this.sessionTimeout=CreateTimeSpan(2,0,0,0);
 	this.mappings["framework"] = expandpath("../framework");
 	this.mappings["app"] = expandpath("../app");
+	this.datasources["todos"] = {
+	  class: 'org.hsqldb.jdbcDriver',
+	  connectionString: 'jdbc:hsqldb:file:./db/todos'
+	};
+	this.datasource="todos";
+	this.ormenabled="true";
+
+	this.ormsettings={
+		datasource="todos" ,
+		logSQL="false" ,
+		eventHandling="false" ,
+		cfclocation="/app/entities" ,
+		savemapping="false",
+		dbcreate="update",
+		autoManageSession=false,
+		flushatrequestend="false"
+	};
 
     function _get_framework_one() {
         if ( !structKeyExists( request, '_framework_one' ) ) {
@@ -17,7 +34,17 @@ component {
 				dilocations : '/app/services,/app/lib',
 		        reloadApplicationOnEveryRequest : true,
 				unhandledPaths : '/angular',
-		        generateSES : true
+		        generateSES : true,
+				routes = [
+				  { "$GET/todo/:id" = "/main/get/id/:id" },
+				  { "$GET/todo/" = "/main/list" },
+				  { "$DELETE/todo/:id" = "/main/delete/id/:id" },
+				  { "$POST/todo/" = "/main/save" },
+				  { "$GET/test/" = "/main/test" },
+				  { "$GET/*" = "/main/default/" },
+				  { "*" = "/main/default/" }
+				]
+
 	        })
 		}
 
