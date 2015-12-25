@@ -8,7 +8,7 @@
 	    <condition type="remote-addr" operator="notequal">0:0:0:0:0:0:0:1</condition>
 	    <from>^/lucee/.*$</from>
 		<to>/index.cfm</to>
-	    <set type="status">403</set>
+	    <set type="status">404</set>
 	</rule>
 
 	<rule enabled="true">
