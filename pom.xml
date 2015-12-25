@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>lucee.heroku</groupId>
+	<artifactId>lucee.heroku</artifactId>
+	<version>1.1.1</version>
+	<name>Lucee Heroku Application Template</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.lucee</groupId>
+			<artifactId>lucee</artifactId>
+			<version>4.5.3.001</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.lucee.lib</groupId>
+			<artifactId>javax-servlet</artifactId>
+			<version>2.3.1_l5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tuckey</groupId>
+			<artifactId>urlrewritefilter</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>cfmlprojects</id>
+			<url>http://cfmlprojects.org/artifacts</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>webroot/WEB-INF</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<excludes>
+								<exclude>*.xml</exclude>
+								<exclude>**/lucee-server.xml</exclude>
+								<exclude>**/lucee-web.xml.cfm</exclude>
+							</excludes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-lucee-deps</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>webroot/WEB-INF/lib</outputDirectory>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>copy-libs</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>net.sourceforge.winstone</groupId>
+									<artifactId>winstone</artifactId>
+									<version>0.9.10</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+									<destFileName>winstone.jar</destFileName>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.lucee.lib</groupId>
+									<artifactId>lucee-inst</artifactId>
+									<version>4.5.2.011</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+									<destFileName>lucee-inst.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<echo file="Procfile"
+									message="web: java $JAVA_OPTS -javaagent:target/lucee-inst.jar -jar target/winstone.jar --ajp13Port=-1 --httpPort=$PORT --directoryListings=false --simulateModUniqueId=true --webroot=webroot " />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
