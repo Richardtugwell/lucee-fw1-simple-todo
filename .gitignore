@@ -21,10 +21,4 @@ webroot/WEB-INF/lib/lucee-server/context/*
 webroot/WEB-INF/lucee/*
 !webroot/WEB-INF/lucee/lucee-web.xml.cfm
 
-db/todos.lck
-
-db/todos.log
-
-db/todos.properties
-
-db/todos.script
+db*

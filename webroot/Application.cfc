@@ -8,7 +8,7 @@ component {
 	this.mappings["theapp"] = expandpath("../theapp");
 	this.datasources["todos"] = {
 	  class: 'org.hsqldb.jdbcDriver',
-	  connectionString: 'jdbc:hsqldb:file:' & expandpath("../theapp") & '/db/todos'
+	  connectionString: 'jdbc:hsqldb:file:./db/todos'
 	};
 	this.datasource="todos";
 	this.ormenabled="true";
