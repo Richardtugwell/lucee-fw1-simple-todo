@@ -3,6 +3,12 @@ component accessors = true {
 	property framework;
 	property todoservice;
 
+	public void function default( struct rc ) {
+
+		framework.setView("main.default");
+
+	}
+
 	public void function get( struct rc ) {
 
 		var todobean = todoservice.get(arguments.rc.id);
