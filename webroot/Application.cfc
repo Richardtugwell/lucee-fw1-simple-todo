@@ -13,7 +13,7 @@ component {
 	};
 	this.datasource="todos";
 	this.ormenabled="true";
-
+	dump(var:this);abort;
 	this.ormsettings={
 		datasource="todos" ,
 		logSQL="false" ,
