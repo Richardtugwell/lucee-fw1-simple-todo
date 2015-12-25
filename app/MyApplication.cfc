@@ -2,14 +2,14 @@ component extends="framework.one" {
 
 	function setupApplication() {
 
-		application.rb = getbeanfactory().getBean("javaRB");
+		// application.rb = getbeanfactory().getBean("javaRB");
 
 	}
 
 	function setupRequest() {
 
 		request.context.page = structNew();
- 		variables.rb = application.rb;
+ 		// variables.rb = application.rb;
 		request.context.page["title"] = "Default Page";
         if (structKeyexists(URL,"trace")) {
 		framework.trace = true;
