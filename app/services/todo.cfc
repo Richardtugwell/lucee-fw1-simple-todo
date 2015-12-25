@@ -64,48 +64,5 @@ component  {
 
 	}
 
-	public any function test( ) {
-
-		var theDay = createDate(2015, 1, 1)
-
-		while ( theDay <= createDate(2015, 12, 31) ) {
-			transaction {
-				var refDate = entityNew("almanac")
-				refDate.setIDdate(theDay)
-				refDate.setTheMonth(datePart("m" , theDay))
-				refDate.setTheWeek(datePart("ww" , theDay))
-				refDate.setTheDay(datePart("d" , theDay))
-				entitySave(refDate)
-				theDay = dateAdd("d" , 1 , theDay)
-			}
-		}
-
-		var r = [];
-		theDay = createDate(2015, 1, 1)
-		while ( theDay <= createDate(2015, 12, 31) ) {
-			for ( var a = 1; a < 4; a++) {
-				for ( var b = 1; b < 3; b++) {
-					for ( var d = 1; d < 4; d++) {
-						for ( var e = 1; e < 10; e++) {
-							var test = entityNew("cloud")
-							test.setAccount(d)
-							test.setProject(a)
-							test.setV(RandRange(250, 650))
-							test.setProvider(b)
-							test.setService(e)
-							test.setTheDate(theDay)
-							entitySave(test)
-						}
-
-					}
-				}
-			}
-			theDay = dateAdd("d" , 1 , theDay)
-		}
-		ormflush()
-	return "ok"
-
-	}
-
 
 }
