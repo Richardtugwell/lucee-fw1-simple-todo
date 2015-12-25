@@ -5,20 +5,18 @@ component {
 	this.applicationTimeout=CreateTimeSpan(2,0,0,0);
 	this.sessionTimeout=CreateTimeSpan(0,1,0,0);
 	this.mappings["framework"] = expandpath("../framework");
-	this.mappings["app"] = expandpath("../app");
-	this.mappings["appbase"] = expandpath("../app/fw1");
+	this.mappings["theapp"] = expandpath("../theapp");
 	this.datasources["todos"] = {
 	  class: 'org.hsqldb.jdbcDriver',
 	  connectionString: 'jdbc:hsqldb:file:./db/todos'
 	};
 	this.datasource="todos";
 	this.ormenabled="true";
-	dump(var:this);abort;
 	this.ormsettings={
 		datasource="todos" ,
 		logSQL="false" ,
 		eventHandling="false" ,
-		cfclocation="/app/entities" ,
+		cfclocation="/theapp/entities" ,
 		savemapping="false",
 		dbcreate="update",
 		autoManageSession=false,
@@ -29,9 +27,9 @@ component {
         if ( !structKeyExists( request, '_framework_one' ) ) {
 
             // create your FW/1 application:
-            request._framework_one = new app.MyApplication({
-				base : "/appbase/" ,
-				dilocations : '/app/services,/app/lib',
+            request._framework_one = new theapp.MyApplication({
+				base : "/theapp/fw1/" ,
+				dilocations : '/theapp/services,/app/lib',
 				unhandledPaths : '/angular',
 				viewsFolder : "views",
 				framework.trace: true,
