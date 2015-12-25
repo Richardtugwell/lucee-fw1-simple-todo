@@ -40,7 +40,7 @@ component  {
 		todoBean.setStatus( rc["status"] )  ;
 
 		entitySave( todobean );
-
+		ormFlush();
 		}
 
 	return todobean;
@@ -57,6 +57,7 @@ component  {
 
 		transaction {
 			entityDelete( todoBean );
+			ormFlush();
 			}
 		}
 
