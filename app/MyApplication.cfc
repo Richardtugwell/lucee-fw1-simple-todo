@@ -8,7 +8,7 @@ component extends="framework.one" {
 
 	function setupRequest() {
 
-		dump(var:variables);abort;
+		//dump(var:variables);abort;
 		request.context.page = structNew();
  		// variables.rb = application.rb;
 		request.context.page["title"] = "Default Page";
