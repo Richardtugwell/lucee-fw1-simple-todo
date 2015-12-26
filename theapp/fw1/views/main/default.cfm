@@ -1,5 +1,4 @@
 <div class="container">
-	<cfdump var=#entityload('todo')#>
 	<div class="page-header">
 	  <h1>Simple ToDo using CFML, FW1, Angularjs and Bootstrap</h1>
 	</div>
