@@ -5,10 +5,14 @@ component {
 	this.applicationTimeout=CreateTimeSpan(2,0,0,0);
 	this.sessionTimeout=CreateTimeSpan(0,1,0,0);
 	this.mappings["framework"] = expandpath("../framework");
-	this.mappings["theapp"] = expandpath("../theapp");
+	this.mappings["application"] = expandpath("../application");
 	this.datasources["todos"] = {
-	  class: 'org.postgresql.Driver',
-	  connectionString: 'jdbc:postgresql://ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=gfgsvyodgtjewt&password=ZGzmDpXe241rHK3bTnD3JkKhmj'
+		// Embedded hsql db is fine for local testing and POC, but I beleive it will get reset by Heroku on app reloads
+		class: 'org.hsqldb.jdbcDriver',
+		connectionString: 'jdbc:hsqldb:file:./db/todos'
+		// If you want to persist data on Heroku you should probably use Heroku Postgres§
+		//class: 'org.postgresql.Driver',
+		//connectionString: 'jdbc:postgresql://ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=xxxxxxx&password=xxxxxxx'
 	};
 	this.datasource="todos";
 	this.ormenabled="true";
@@ -16,7 +20,7 @@ component {
 		datasource="todos" ,
 		logSQL="false" ,
 		eventHandling="false" ,
-		cfclocation="/theapp/entities" ,
+		cfclocation="/application/entities" ,
 		savemapping="false",
 		dbcreate="update",
 		autoManageSession=false,
@@ -27,12 +31,11 @@ component {
         if ( !structKeyExists( request, '_framework_one' ) ) {
 
             // create your FW/1 application:
-            request._framework_one = new theapp.MyApplication({
-				base : "/theapp/fw1/" ,
-				dilocations : '/theapp/services,/app/lib',
+            request._framework_one = new application.framework({
+				base : "/application/fw1/" ,
+				dilocations : '/application/services,/application/lib',
 				unhandledPaths : '/angular',
 				viewsFolder : "views",
-				framework.trace: true,
 				reloadApplicationOnEveryRequest : true,
 		        generateSES : true,
 				routes = [

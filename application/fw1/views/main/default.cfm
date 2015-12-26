@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="page-header">
-	  <h1>Simple ToDo using CFML, FW1, Angularjs and Bootstrap</h1>
+	  <h1>Example ToDo using Lucee, FW1, Angularjs and Bootstrap</h1>
 	</div>
 
 	<div class="panel panel-default form-horizontal" >

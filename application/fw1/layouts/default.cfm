@@ -3,9 +3,9 @@
 <html ng-app="theApp" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>ToDo System</title>
-	
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">	
+	<title>Lucee / FW1 ToDo Example</title>
+
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body ng-controller="todoCtrl">
@@ -19,7 +19,7 @@
       <span class="icon-bar"></span>
     </button>
 	<span class="navbar-brand">
-	ToDo System				
+	Lucee / FW1 ToDo Example
     </span>
   </div>
 
