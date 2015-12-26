@@ -6,10 +6,7 @@ component  {
 
 	public any function list(  ) {
 
-		var todos  = entityload( "todo" , {} , "title asc" , {ignorecase=true} );
-
-	return todos;
-
+		return entityload( "todo" , {} , "title asc" , {ignorecase=true} );
 	}
 
 	public any function get( string id ) {
@@ -17,53 +14,40 @@ component  {
 		var todo  = entityloadByPk( "todo" , arguments.id  );
 
 		if ( isNull( todo ) ) {
-
-		var todo  = entityNew( "todo" );
-
+			return entityNew( "todo" );
 		}
 
-	return todo;
-
+		return todo;
 	}
 
 	public any function save( struct rc  ) {
 
 		param name="rc.id" default="0";
-		var todobean = get( rc.id );
-
 		param name="rc.title" default=""  ;
 		param name="rc.status" default="new"  ;
+		var todobean = get( rc.id );
 
 		transaction {
-
-		todoBean.setTitle( rc["title"] )  ;
-		todoBean.setStatus( rc["status"] )  ;
-
-		entitySave( todobean );
-		ormFlush();
+			todoBean.setTitle( rc["title"] )  ;
+			todoBean.setStatus( rc["status"] )  ;
+			entitySave( todobean );
 		}
 
-	return todobean;
-
+		return todobean;
 	}
 
 	public any function delete(  string id ) {
 
 		param name="arguments.id" default="0";
-
 		var todoBean  = entityloadByPk( "todo" , arguments.id  );
 
 		if ( not isNull( todoBean ) ) {
-
-		transaction {
-			entityDelete( todoBean );
-			ormFlush();
+			transaction {
+				entityDelete( todoBean );
 			}
 		}
 
-	return id;
-
+		return id;
 	}
-
 
 }

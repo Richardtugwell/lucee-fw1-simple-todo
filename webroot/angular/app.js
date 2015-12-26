@@ -6,13 +6,13 @@ todoCtrl.$inject = ['$scope' , '$http' , '$httpParamSerializer'];
 
 function todoCtrl($scope , $http , $httpParamSerializer  ) {
 
-	$http.get('/index.cfm/todo').success( function( data ) { $scope.todos = data } );
+	$http.get('/todo').success( function( data ) { $scope.todos = data } );
 
 	$scope.saveTodo = function( idx ) {
 		var todo = $scope.todos[idx];
 		$http({
 			method: 'POST',
-			url: '/index.cfm/todo',
+			url: '/todo',
 			data: $httpParamSerializer(todo),
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
@@ -29,7 +29,7 @@ function todoCtrl($scope , $http , $httpParamSerializer  ) {
 
 		var todo = $scope.todos[idx];
 
-		$http.delete('/index.cfm/todo/' + todo.id).success(function(data){
+		$http.delete('/todo/' + todo.id).success(function(data){
 
 				$scope.todos.splice( idx , 1 );
 
@@ -50,7 +50,7 @@ function todoCtrl($scope , $http , $httpParamSerializer  ) {
 
 		var todo = $scope.todos[idx];
 
-		$http.get('/index.cfm/todo/' + todo.id).success( function( data ) { $scope.todos[idx] = data } );
+		$http.get('/todo/' + todo.id).success( function( data ) { $scope.todos[idx] = data } );
 
 	}
 

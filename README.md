@@ -2,9 +2,7 @@
 
 ##Simple ToDo app using Lucee / FW1 / AngularJS / Bootstrap for deployment on Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-Demo: [https://lucee.herokuapp.com/](https://lucee.herokuapp.com/)
+Demo: [https://lucee-fw1-todo.herokuapp.com/](https://lucee-fw1-todo.herokuapp.com/)
 
 ####Credits/Notes:
 This began as a fork of Mike Sprague's [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
