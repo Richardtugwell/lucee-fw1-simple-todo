@@ -2,7 +2,7 @@
 <!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
         "http://urlrewritefilter.googlecode.com/svn/trunk/src/java/org/tuckey/web/filters/urlrewrite/dtds/urlrewrite4.0.dtd">
 <urlrewrite>
-	<rule enabled="true">
+	<rule enabled="false">
 	    <note>Block Lucee admin to remote hosts</note>
 	    <condition type="remote-addr" operator="notequal">127.0.0.1</condition>
 	    <condition type="remote-addr" operator="notequal">0:0:0:0:0:0:0:1</condition>

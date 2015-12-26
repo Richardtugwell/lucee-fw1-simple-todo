@@ -7,8 +7,8 @@ component {
 	this.mappings["framework"] = expandpath("../framework");
 	this.mappings["theapp"] = expandpath("../theapp");
 	this.datasources["todos"] = {
-	  class: 'org.hsqldb.jdbcDriver',
-	  connectionString: 'jdbc:hsqldb:file:./db/todos'
+	  class: 'org.postgresql.Driver',
+	  connectionString: 'jdbc:postgresql://ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=gfgsvyodgtjewt&password=ZGzmDpXe241rHK3bTnD3JkKhmj'
 	};
 	this.datasource="todos";
 	this.ormenabled="true";
