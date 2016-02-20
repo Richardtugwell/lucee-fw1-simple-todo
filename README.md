@@ -17,8 +17,8 @@ This project uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/l
 To get started, run the following commands in GitBash (or your terminal of preference):
 
 ```bash
-$ git clone https://github.com/writecodedrinkcoffee/lucee-heroku.git
-$ cd lucee-heroku
+$ git clone https://github.com/Richardtugwell/lucee-fw1-simple-todo.git
+$ cd lucee-fw1-simple-todo
 $ mvn package
 $ foreman start
 ```
@@ -27,8 +27,8 @@ NOTE: On Windows, start foreman with the following command:
 $ foreman start -f Procfile.dev
 ```
 
-You should now have Lucee up and running at [http://localhost:5000](http://localhost:5000).
-Start adding your code to /webroot.
+You should now have the ToDo application up and running at [http://localhost:5000](http://localhost:5000).
+Start hacking modifying as required.
 
 By default, access to the Lucee server/web admins has remote access blocked. This can be
 configured in /webroot/WEB-INF/urlrewrite.xml
