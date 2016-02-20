@@ -3,6 +3,7 @@ target
 .project
 Procfile*
 !Procfile.dev
+.idea
 
 webroot/WEB-INF/*
 !webroot/WEB-INF/*.xml
