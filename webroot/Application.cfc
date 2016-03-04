@@ -28,11 +28,11 @@ component {
 	};
 
     function _get_framework_one() {
-		
+
         if ( !structKeyExists( request, '_framework_one' ) ) {
 
             // create your FW/1 application:
-            request._framework_one = new application.framework({
+            request._framework_one = new application.app({
 				base : "/application/fw1/" ,
 				dilocations : '/application/services',
 				unhandledPaths : '/angular',
