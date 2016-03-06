@@ -22,6 +22,8 @@ component extends="framework.one" {
 
 		request.context.page = structNew();
 		request.context.page["title"] = "Default Page";
+		request.context.FW1Version = framework.version;
+		request.context.LuceeVersion = "4.5.3.001";
 
     }
 

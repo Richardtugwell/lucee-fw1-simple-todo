@@ -2,7 +2,7 @@
 
 ##Simple ToDo app using Lucee / FW1 / AngularJS / Bootstrap for deployment on Heroku
 
-Demo: [https://lucee-fw1-todo.herokuapp.com/](https://lucee-fw1-todo.herokuapp.com/) (Note that DB is recreated every time the Heroku app is rebooted)
+Demo: [https://lucee-fw1-todo.herokuapp.com/](https://lucee-fw1-todo.herokuapp.com/) (Note that DB is recreated every time the Heroku dyno is rebooted)
 
 ####Credits/Notes:
 This began as a fork of Mike Sprague's [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
@@ -12,6 +12,14 @@ This project uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/l
 ###Requirements
 * [Maven](http://maven.apache.org/) to build the project
 * [Foreman](https://github.com/ddollar/foreman) to run locally
+
+###Lucee info
+Version 4.5.3.001
+
+Lucee admin settings such as mappings and datasources are defined in application.cfc
+
+###FW1 Notes
+Version 4.0.0 Alpha
 
 ###Instructions
 To get started, run the following commands in GitBash (or your terminal of preference):

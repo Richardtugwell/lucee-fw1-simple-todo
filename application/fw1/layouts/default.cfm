@@ -26,5 +26,11 @@
 </nav>
 
 <cfoutput>#body#</cfoutput>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+	<cfoutput>#rc.FW1Version#</cfoutput>
+	<cfoutput>#rc.LuceeVersion#</cfoutput>
+  </div>
+</nav>
 </body>
 </html>
