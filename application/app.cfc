@@ -1,5 +1,23 @@
 component extends="framework.one" {
 
+	// FW/1 - configuration:
+	variables.framework = {
+		base : "/application/fw1/" ,
+		dilocations : '/application/services',
+		unhandledPaths : '/angular',
+		reloadApplicationOnEveryRequest : true,
+        generateSES : true,
+        SESOmitIndex : true,
+		routes = [
+		  { "$GET/todo/:id" = "/main/get/id/:id" },
+		  { "$GET/todo/" = "/main/list" },
+		  { "$DELETE/todo/:id" = "/main/delete/id/:id" },
+		  { "$POST/todo/" = "/main/save" },
+		  { "$GET/*" = "/main/default/" },
+		  { "*" = "/main/default/" }
+		]
+	}
+
 	function setupRequest() {
 
 		request.context.page = structNew();
@@ -12,7 +30,7 @@ component extends="framework.one" {
 		return view("main/404");
 
     }
-	
+
 	function failure( exception, event ) { // "private"
 
 		if ( structKeyExists(exception, 'rootCause') ) {

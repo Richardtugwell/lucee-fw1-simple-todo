@@ -33,22 +33,8 @@ component {
 
             // create your FW/1 application:
             request._framework_one = new application.app({
-				base : "/application/fw1/" ,
-				dilocations : '/application/services',
-				unhandledPaths : '/angular',
-				reloadApplicationOnEveryRequest : true,
-		        generateSES : true,
-		        SESOmitIndex : true,
-				routes = [
-				  { "$GET/todo/:id" = "/main/get/id/:id" },
-				  { "$GET/todo/" = "/main/list" },
-				  { "$DELETE/todo/:id" = "/main/delete/id/:id" },
-				  { "$POST/todo/" = "/main/save" },
-				  { "$GET/*" = "/main/default/" },
-				  { "*" = "/main/default/" }
-				]
-
-	        })
+				// FW/1 - configuration is defined in application/app.cfc:
+				})
 		}
 
         return request._framework_one;
