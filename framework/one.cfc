@@ -1,7 +1,7 @@
 component {
-    variables._fw1_version = "4.0.0-snapshot";
+    variables._fw1_version = "4.0.0-alpha1";
 /*
-    Copyright (c) 2009-2015, Sean Corfield, Marcin Szczepanski, Ryan Cogswell
+    Copyright (c) 2009-2016, Sean Corfield, Marcin Szczepanski, Ryan Cogswell
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -467,6 +467,12 @@ component {
         return listLast( getSectionAndItem( action ), '.' );
     }
 
+    /*
+     * return this request's CGI method
+     */
+    public string function getCGIRequestMethod() {
+        return request._fw1.cgiRequestMethod;
+    }
 
     /*
      * return the current route (if any)
@@ -1145,27 +1151,44 @@ component {
             statusText = '',
             jsonpCallback = jsonpCallback
         };
-        // return a build to support nicer rendering syntax
+        // return a builder to support nicer rendering syntax
+        return renderer();
+    }
+
+    public any function renderer() {
         var builder = { };
         structAppend( builder, {
             // allow type and data to be overridden just for completeness
             type : function( v ) {
+                if ( !structKeyExists( request._fw1, 'renderData' ) ) request._fw1.renderData = { };
                 request._fw1.renderData.type = v;
                 return builder;
             },
             data : function( v ) {
+                if ( !structKeyExists( request._fw1, 'renderData' ) ) request._fw1.renderData = { };
                 request._fw1.renderData.data = v;
                 return builder;
             },
+            header : function( h, v ) {
+                if ( !structKeyExists( request._fw1, 'renderData' ) ) request._fw1.renderData = { };
+                if ( !structKeyExists( request._fw1.renderData, 'headers' ) ) {
+                    request._fw1.renderData.headers = [ ];
+                }
+                arrayAppend( request._fw1.renderData.headers, { name = h, value = v } );
+                return builder;
+            },
             statusCode : function( v ) {
+                if ( !structKeyExists( request._fw1, 'renderData' ) ) request._fw1.renderData = { };
                 request._fw1.renderData.statusCode = v;
                 return builder;
             },
             statusText : function( v ) {
+                if ( !structKeyExists( request._fw1, 'renderData' ) ) request._fw1.renderData = { };
                 request._fw1.renderData.statusText = v;
                 return builder;
             },
             jsonpCallback : function( v ) {
+                if ( !structKeyExists( request._fw1, 'renderData' ) ) request._fw1.renderData = { };
                 request._fw1.renderData.jsonpCallback = v;
                 return builder;
             }
@@ -1469,7 +1492,7 @@ component {
         if ( structKeyExists( cfc, method ) ) {
             try {
                 internalFrameworkTrace( 'calling #lifecycle# controller', tuple.subsystem, tuple.section, method );
-                evaluate( 'cfc.#method#( rc = request.context )' );
+                evaluate( 'cfc.#method#( rc = request.context, headers = request._fw1.headers )' );
             } catch ( any e ) {
                 setCfcMethodFailureInfo( cfc, method );
                 rethrow;
@@ -1477,7 +1500,7 @@ component {
         } else if ( structKeyExists( cfc, 'onMissingMethod' ) ) {
             try {
                 internalFrameworkTrace( 'calling #lifecycle# controller (via onMissingMethod)', tuple.subsystem, tuple.section, method );
-                evaluate( 'cfc.#method#( rc = request.context, method = lifecycle )' );
+                evaluate( 'cfc.#method#( rc = request.context, method = lifecycle, headers = request._fw1.headers )' );
             } catch ( any e ) {
                 setCfcMethodFailureInfo( cfc, method );
                 rethrow;
@@ -2161,6 +2184,8 @@ component {
         var renderType = request._fw1.renderData.type;
         var statusCode = request._fw1.renderData.statusCode;
         var statusText = request._fw1.renderData.statusText;
+        var headers = structKeyExists( request._fw1.renderData, 'headers' ) ?
+            request._fw1.renderData.headers : [ ];
         if ( isSimpleValue( renderType ) ) {
             var fn_type = 'render_' & renderType;
             if ( structKeyExists( variables, fn_type ) ) {
@@ -2176,10 +2201,13 @@ component {
             // assume it is a function
             out = renderType( request._fw1.renderData );
         }
+        var resp = getPageContext().getResponse();
+        for ( var h in headers ) {
+            resp.setHeader( h.name, h.value );
+        }
         // in theory, we should use sendError() instead of setStatus() but some
         // Servlet containers interpret that to mean "Send my error page" instead
         // of just sending the response you actually want!
-        var resp = getPageContext().getResponse();
         if ( len( statusText ) ) {
             resp.setStatus( statusCode, statusText );
         } else {
@@ -2671,7 +2699,11 @@ component {
                 var routeMatch = processRoutes( pathInfo, routes );
                 if ( routeMatch.matched ) {
                     internalFrameworkTrace( 'route matched - #routeMatch.route# - #pathInfo#' );
-                    pathInfo = rereplace( routeMatch.path, routeMatch.pattern, routeMatch.target );
+                    if ( variables.framework.routesCaseSensitive ) {
+                        pathInfo = rereplace( routeMatch.path, routeMatch.pattern, routeMatch.target );
+                    } else {
+                        pathInfo = rereplacenocase( routeMatch.path, routeMatch.pattern, routeMatch.target );
+                    }
                     if ( routeMatch.redirect ) {
                         location( pathInfo, false, routeMatch.statusCode );
                     } else {
@@ -2716,10 +2748,11 @@ component {
             // certain remote calls do not have URL or form scope:
             if ( isDefined( 'URL'  ) ) structAppend( request.context, URL );
             if ( isDefined( 'form' ) ) structAppend( request.context, form );
+            var httpData = getHttpRequestData();
             if ( variables.framework.enableJSONPOST ) {
                 // thanks to Adam Tuttle and by proxy Jason Dean and Ray Camden for the
                 // seed of this code, inspired by Taffy's basic deserialization
-                var body = getHttpRequestData().content;
+                var body = httpData.content;
                 if ( isBinary( body ) ) body = charSetEncode( body, "utf-8" );
                 if ( len( body ) ) {
                     switch ( listFirst( CGI.CONTENT_TYPE, ';' ) ) {
@@ -2739,6 +2772,7 @@ component {
                     }
                 }
             }
+            request._fw1.headers = httpData.headers;
             // figure out the request action before restoring flash context:
             if ( !structKeyExists( request.context, variables.framework.action ) ) {
                 request.context[ variables.framework.action ] = getFullyQualifiedAction( variables.framework.home );
