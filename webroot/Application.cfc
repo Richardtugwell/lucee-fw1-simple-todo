@@ -7,10 +7,10 @@ component {
 	this.mappings["framework"] = expandpath("../framework");
 	this.mappings["application"] = expandpath("../application");
 	this.datasources["todos"] = {
-		// Embedded hsql db is fine for local testing and POC, but I beleive it will get reset by Heroku on app reloads
+		// Embedded hsql db
 		class: 'org.hsqldb.jdbcDriver',
 		connectionString: 'jdbc:hsqldb:file:./db/todos'
-		// If you want to persist data on Heroku you should probably use Heroku Postgres§
+		// Example ds for Heroku postgres
 		//class: 'org.postgresql.Driver',
 		//connectionString: 'jdbc:postgresql://ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=xxxxxxx&password=xxxxxxx'
 	};
@@ -18,12 +18,9 @@ component {
 	this.ormenabled="true";
 	this.ormsettings={
 		datasource="todos" ,
-		logSQL="false" ,
-		eventHandling="false" ,
 		cfclocation="/application/entities" ,
-		savemapping="false",
 		dbcreate="update",
-		autoManageSession=false,
+		autoManageSession="false",
 		flushatrequestend="false"
 	};
 
