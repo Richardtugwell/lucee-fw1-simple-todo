@@ -5,11 +5,11 @@ component {
 	this.applicationTimeout=CreateTimeSpan(2,0,0,0);
 	this.sessionTimeout=CreateTimeSpan(0,1,0,0);
 	this.mappings["framework"] = expandpath("../framework");
-	this.mappings["application"] = expandpath("../application");
+	this.mappings["application"] = expandpath("../");
 	this.datasources["todos"] = {
 		// Embedded hsql db
 		class: 'org.hsqldb.jdbcDriver',
-		connectionString: 'jdbc:hsqldb:file:./db/todos'
+		connectionString: 'jdbc:hsqldb:file:./application/db/todos'
 		// Example ds for Heroku postgres
 		//class: 'org.postgresql.Driver',
 		//connectionString: 'jdbc:postgresql://ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=xxxxxxx&password=xxxxxxx'
