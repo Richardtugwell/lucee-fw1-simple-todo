@@ -83,7 +83,7 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>webroot/WEB-INF</directory>
+							<directory>application/webroot/WEB-INF</directory>
 							<includes>
 								<include>**/*</include>
 							</includes>
@@ -109,7 +109,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>webroot/WEB-INF/lib</outputDirectory>
+							<outputDirectory>application/webroot/WEB-INF/lib</outputDirectory>
 						</configuration>
 					</execution>
 
