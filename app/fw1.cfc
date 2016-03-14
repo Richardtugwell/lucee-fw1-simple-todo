@@ -2,8 +2,8 @@ component extends="framework.one" {
 
 	// FW/1 - configuration:
 	variables.framework = {
-		base : "/app/fw1/" ,
-		dilocations : '/app/services',
+		base : "/root/fw1/" ,
+		dilocations : '/root/services',
 		unhandledPaths : '/angular',
 		reloadApplicationOnEveryRequest : true,
         generateSES : true,
