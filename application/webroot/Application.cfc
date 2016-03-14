@@ -5,9 +5,10 @@ component {
 	this.applicationTimeout=CreateTimeSpan(2,0,0,0);
 	this.sessionTimeout=CreateTimeSpan(0,1,0,0);
 	this.mappings["framework"] = expandpath("../framework");
-	this.mappings["application"] = expandpath("../");
+	this.mappings["root"] = expandpath("../");
 	this.datasources["todos"] = {
-		// Embedded hsql db
+		// Embedded hsql db. Note that this is not included in the repo
+		// If using Heroku deploy it will get recreated everytime the dyno is rebooted
 		class: 'org.hsqldb.jdbcDriver',
 		connectionString: 'jdbc:hsqldb:file:./application/db/todos'
 		// Example ds for Heroku postgres
@@ -18,7 +19,7 @@ component {
 	this.ormenabled="true";
 	this.ormsettings={
 		datasource="todos" ,
-		cfclocation="/application/entities" ,
+		cfclocation="/root/entities" ,
 		dbcreate="update",
 		autoManageSession="false",
 		flushatrequestend="false"
@@ -29,7 +30,7 @@ component {
         if ( !structKeyExists( request, '_framework_one' ) ) {
 
             // create your FW/1 application:
-            request._framework_one = new application.app({
+            request._framework_one = new root.app({
 				// FW/1 - configuration is defined in application/app.cfc:
 				})
 		}
