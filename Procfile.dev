@@ -1,1 +1,1 @@
-web: java -javaagent:target/lucee-inst.jar -jar target/winstone.jar --ajp13Port=-1 --httpPort=$PORT --directoryListings=false --simulateModUniqueId=true --webroot=app/webroot
+web: java -javaagent:target/lucee-inst.jar -jar target/winstone.jar --ajp13Port=-1 --httpPort=$PORT --directoryListings=false --simulateModUniqueId=true --webroot=application/webroot
