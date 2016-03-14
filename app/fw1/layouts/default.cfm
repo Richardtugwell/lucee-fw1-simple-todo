@@ -29,8 +29,8 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
       <ul class="nav navbar-nav">
-        <li><a href="">FW1 v<cfoutput>#rc.FW1Version#</cfoutput></a></li>
-        <li><a href="">Lucee v<cfoutput>#rc.LuceeVersion#</cfoutput></a></li>
+        <li><a href="">FW1 Version <cfoutput>#rc.FW1Version#</cfoutput></a></li>
+        <li><a href="">Lucee Version <cfoutput>#rc.LuceeVersion#</cfoutput></a></li>
       </ul>
   </div>
 </nav>
