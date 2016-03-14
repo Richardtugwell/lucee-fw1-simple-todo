@@ -5,21 +5,21 @@ Procfile*
 !Procfile.dev
 .idea
 
-application/webroot/WEB-INF/*
-!application/webroot/WEB-INF/*.xml
-!application/webroot/WEB-INF/lib/
-!application/webroot/WEB-INF/lucee/
+app/webroot/WEB-INF/*
+!app/webroot/WEB-INF/*.xml
+!app/webroot/WEB-INF/lib/
+!app/webroot/WEB-INF/lucee/
 
-application/webroot/WEB-INF/lib/*
-!application/webroot/WEB-INF/lib/lucee-server/
+app/webroot/WEB-INF/lib/*
+!app/webroot/WEB-INF/lib/lucee-server/
 
-application/webroot/WEB-INF/lib/lucee-server/*
-!application/webroot/WEB-INF/lib/lucee-server/context/
+app/webroot/WEB-INF/lib/lucee-server/*
+!app/webroot/WEB-INF/lib/lucee-server/context/
 
-application/webroot/WEB-INF/lib/lucee-server/context/*
-!application/webroot/WEB-INF/lib/lucee-server/context/lucee-server.xml
+app/webroot/WEB-INF/lib/lucee-server/context/*
+!app/webroot/WEB-INF/lib/lucee-server/context/lucee-server.xml
 
-application/webroot/WEB-INF/lucee/*
-!application/webroot/WEB-INF/lucee/lucee-web.xml.cfm
+app/webroot/WEB-INF/lucee/*
+!app/webroot/WEB-INF/lucee/lucee-web.xml.cfm
 
 db*
