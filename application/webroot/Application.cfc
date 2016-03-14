@@ -30,8 +30,8 @@ component {
         if ( !structKeyExists( request, '_framework_one' ) ) {
 
             // create your FW/1 application:
-            request._framework_one = new root.app({
-				// FW/1 - configuration is defined in application/app.cfc:
+            request._framework_one = new root.fw1({
+				// FW/1 - configuration is defined in root/fw1.cfc:
 				})
 		}
 

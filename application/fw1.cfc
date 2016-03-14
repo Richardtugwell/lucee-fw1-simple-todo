@@ -9,6 +9,7 @@ component extends="framework.one" {
         generateSES : true,
         SESOmitIndex : true,
 		routes = [
+		  { "$GET/admin/api/list" = "/test:main/list" },
 		  { "$GET/todo/:id" = "/main/get/id/:id" },
 		  { "$GET/todo/" = "/main/list" },
 		  { "$DELETE/todo/:id" = "/main/delete/id/:id" },
