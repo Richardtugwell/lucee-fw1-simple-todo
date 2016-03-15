@@ -4,6 +4,22 @@
 
 Demo: [https://lucee-fw1-todo.herokuapp.com/](https://lucee-fw1-todo.herokuapp.com/) (Note that DB is recreated every time the Heroku dyno is rebooted)
 
+This a simple, but functional application that is intended to illustrate a few useful things for people who are new to any of these technologies. It also provides an super easy way to get a CFML environment and application up and running in literally seconds. Credit for this goes to Mike Sprague and others (see below)
+
+Here are some of the features.
+
+####Lucee
+
+* Build and start a Lucee server using Maven and Foreman
+* Deploy a Lucee application to Heroku
+* Define per-application mappings and datasources in application.cfc bypassing the need to use the Lucee Administrator
+* Use Tuckey urelRewrite to lock down the Lucee Administrator
+
+####FW1
+
+* Uses the latest Alpha build of V4.0.0
+* Uses the "new" way of configuring FW1 applicationUses the latest Alpha build of V4.0.0 
+
 ####Credits/Notes:
 This began as a fork of Mike Sprague's [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
 
