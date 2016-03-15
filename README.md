@@ -18,7 +18,9 @@ Here are some of the features.
 ####FW1
 
 * Uses the latest Alpha build of V4.0.0
-* Uses the "new" way of configuring FW1 applicationUses the latest Alpha build of V4.0.0 
+* Uses the "new" way of configuring an FW1 application outside of application.cfc
+* Uses URL routes to implement API calls
+* renderData() drives angularJS http.get calls
 
 ####Credits/Notes:
 This began as a fork of Mike Sprague's [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
