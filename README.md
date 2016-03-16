@@ -1,10 +1,8 @@
-[![Dependency Status](https://www.versioneye.com/user/projects/55a9c89e306535002000016f/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55a9c89e306535002000016f)
-
 ##Simple ToDo app using Lucee / FW1 / AngularJS / Bootstrap for deployment on Heroku
 
 Demo: [https://lucee-fw1-todo.herokuapp.com/](https://lucee-fw1-todo.herokuapp.com/) (Note that DB is recreated every time the Heroku dyno is rebooted)
 
-This a simple, but functional application that is intended to illustrate a few useful things for people who are new to any of these technologies. It also provides an super easy way to get a Lucee environment and application up and running in literally seconds. Credit for this goes to Mike Sprague and others (see below). 
+This a simple, but functional application that is intended to illustrate a few useful things for people who are new to any of these technologies. It also provides an super easy way to get a Lucee environment and application up and running in literally seconds. Credit for this goes to Mike Sprague and others (see below).
 
 Here are some of the features.
 
