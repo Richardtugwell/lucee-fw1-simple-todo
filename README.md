@@ -18,7 +18,7 @@ Here are some of the features.
 ####FW1
 
 * Uses the latest Alpha build of V4.0.0
-* Uses the "new" way of configuring an FW1 application outside of application.cfc
+* Alternative application structure - application.cfc doesn't extend anything - (documentation)(http://framework-one.github.io/documentation/developing-applications.html#alternative-application-structure)
 * All application code moved outside webroot except application.cfc and managed by per-application mappings
 * Uses URL routes to implement API calls
 * renderData() drives angularJS http.get calls
