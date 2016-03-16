@@ -12,21 +12,28 @@ Here are some of the features.
 
 * Build and start a Lucee server using Maven and Foreman
 * Deploy a Lucee application to Heroku
-* Define per-application mappings and datasources in application.cfc bypassing the need to use the Lucee Administrator
+* Define per-application mappings and datasources in application.cfc bypassing some of the need to use the Lucee Administrator
 * Use Tuckey urelRewrite to lock down the Lucee Administrator
 
 ####FW1
 
 * Uses the latest Alpha build of V4.0.0
 * Alternative application structure - application.cfc doesn't extend anything -  [documentation](http://framework-one.github.io/documentation/developing-applications.html#alternative-application-structure)
-* All application code moved outside webroot except application.cfc and managed by per-application mappings
+* Application code is located outside the webroot except application.cfc and managed by per-application mappings
 * Uses URL routes to implement API calls
 * renderData() drives angularJS http.get calls
 
-####Credits/Notes:
-This began as a fork of Mike Sprague's [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
+####Credits - all open source!:
 
-This project uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/lucee/) Maven repo maintained by [Denny Valliant](https://github.com/denuno). Many thanks to Denny for his work maintaining cfmlprojects.org.
+Mike Sprague for his [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project.
+
+That project also uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/lucee/) Maven repo maintained by [Denny Valliant](https://github.com/denuno). Many thanks to Denny for his work maintaining cfmlprojects.org.
+
+Sean Corfield for [FW1](http://framework-one.github.io/) and much other inspiration
+
+[Lucee Association Switzerland](http://lucee.org/) for a powerful, lightweight JVM language
+
+[AngularJS](https://angularjs.org/) from the folks at Google and [Bootstrap](http://getbootstrap.com/) from Twitter
 
 ###Requirements
 * [Maven](http://maven.apache.org/) to build the project
