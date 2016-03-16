@@ -30,11 +30,11 @@ Here are some of the features.
 
 ####Credits - all open source!:
 
+Mike Sprague for his [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project which icked this off - the instructions below are lifted from Mike's project. I've made some minor changes to the original forked project, but nothing significant. That project also uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/lucee/) Maven repo maintained by [Denny Valliant](https://github.com/denuno). Many thanks to Denny for his work maintaining cfmlprojects.org.
+
 Sean Corfield for [FW1](http://framework-one.github.io/) and much other inspiration
 
 [Lucee Association Switzerland](http://lucee.org/) for a powerful, lightweight JVM language
-
-Mike Sprague for his [lucee-heroku-template](https://github.com/writecodedrinkcoffee/lucee-heroku-template) project. That project also uses the [cfmlprojects.org](http://cfmlprojects.org/artifacts/org/lucee/) Maven repo maintained by [Denny Valliant](https://github.com/denuno). Many thanks to Denny for his work maintaining cfmlprojects.org.
 
 [AngularJS](https://angularjs.org/) from the folks at Google and [Bootstrap](http://getbootstrap.com/) from Twitter
 
