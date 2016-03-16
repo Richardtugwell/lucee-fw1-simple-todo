@@ -69,7 +69,8 @@ $ heroku apps:create [NAME]
 $ git push heroku master
 $ heroku open
 ```
-
 You should now be looking at your app running on Heroku.
 
-Enjoy!
+NOTE: You can link your Heroku app to a Github repo, and it will rebuild the dyno when you push to Github - which is quite neat
+
+Have fun!
