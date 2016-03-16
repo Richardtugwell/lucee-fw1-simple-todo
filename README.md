@@ -13,7 +13,8 @@ Here are some of the features.
 * Build and start a Lucee server using Maven and Foreman
 * Deploy a Lucee application to Heroku
 * Define per-application mappings and datasources in application.cfc bypassing some of the need to use the Lucee Administrator
-* Use Tuckey urelRewrite to lock down the Lucee Administrator
+* Embedded database (HSQL) - no setup!
+* Tuckey urlRewrite to lock down the Lucee Administrator
 
 ####FW1
 
@@ -21,7 +22,13 @@ Here are some of the features.
 * Alternative application structure - application.cfc doesn't extend anything -  [documentation](http://framework-one.github.io/documentation/developing-applications.html#alternative-application-structure)
 * Application code is located outside the webroot except application.cfc and managed by per-application mappings
 * Uses URL routes to implement API calls
-* renderData() drives angularJS http.get calls
+* renderData() to drive angularJS http calls
+
+####Angular
+
+* The angularJS functionality is minimal and just really a POC to show how easy it is to use client side frameworks with a Lucee/FW1 backend. With a reasonably sized application you would probably modularise the angular code and implement some kind of build process, also using SASS/LESS to pre process the Bootstrap code.
+
+* Note that in this demo there is only one FW1 section/action - 'main.default' - and it may seem that FW1 is a bit redundant, however for larger applications I've found that separating an application into multiple SPA's based on FW1 sections (or even subsystems/actions) has proved an effective hybrid solution for apps requiring a lot of client side functionality along with backend functionality such as authorisation, customisation, complex business logic etc.
 
 ####Credits - all open source!:
 
@@ -37,16 +44,8 @@ Mike Sprague for his [lucee-heroku-template](https://github.com/writecodedrinkco
 * [Maven](http://maven.apache.org/) to build the project
 * [Foreman](https://github.com/ddollar/foreman) to run locally
 
-###Lucee info
-Version 4.5.3.001
-
-Lucee admin settings such as mappings and datasources are defined in application.cfc
-
-###FW1 Notes
-Version 4.0.0 Alpha
-
 ###Instructions
-To get started, run the following commands in GitBash (or your terminal of preference):
+To get started, run the following commands:
 
 ```bash
 $ git clone https://github.com/Richardtugwell/lucee-fw1-simple-todo.git
