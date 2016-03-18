@@ -25,7 +25,7 @@
 					<input type="text" class="form-control" ng-model="todo.title" >
 				</td>
 				<td>
-				<select type="select" style="background:#fff;" class="form-control" ng-model="todo.status">
+				<select type="select" class="form-control" ng-model="todo.status">
 					<option value="new">New</option>
 					<option value="pending">Pending</option>
 					<option value="complete">Complete</option>
@@ -34,7 +34,7 @@
 				<td>
 					<button class="btn button btn-default" ng-class="{'btn-success': !myForm.$pristine }" ng-disabled="myForm.$pristine" ng-click="saveTodo($index);myForm.$setPristine(true)" ><span class="glyphicon glyphicon-ok"></span> Save</button>
 					<button class="btn button btn-default" ng-class="{'btn-warning': !myForm.$pristine }" ng-disabled="myForm.$pristine" ng-click="reset($index)" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-					<button class="btn button btn-default" ng-click="deleteTodo($index)"><span class="glyphicon glyphicon-plus"></span> Delete</button>
+					<button class="btn button btn-default" ng-click="deleteTodo($index)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 				</td>
 			</tr>
 			</tbody>
