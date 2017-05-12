@@ -1,4 +1,4 @@
-##Simple ToDo app using Lucee / FW1 / AngularJS / Bootstrap for deployment on Heroku
+## Simple ToDo app using Lucee / FW1 / AngularJS / Bootstrap for deployment on Heroku
 
 Demo: [https://lucee-fw1-todo.herokuapp.com/](https://lucee-fw1-todo.herokuapp.com/) (Note that DB is recreated every time the Heroku dyno is rebooted)
  
