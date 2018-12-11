@@ -9,12 +9,12 @@ component {
 	this.datasources["todos"] = {
 		// Embedded hsql db. Note that this is not included in the repo
 		// If using Heroku deploy it will get recreated everytime the dyno is rebooted
-		class: 'org.hsqldb.jdbcDriver',
-		connectionString: 'jdbc:hsqldb:file:./application/db/todos'
+		// class: 'org.hsqldb.jdbcDriver',
+		// connectionString: 'jdbc:hsqldb:file:./application/db/todos'
 		// Example ds for Heroku postgres
-		//class: 'org.postgresql.Driver',
-		//connectionString: 'jdbc:postgresql://ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&user=xxxxxxx&password=xxxxxxx'
-	};
+		class: 'org.postgresql.Driver',
+        connectionString: 'postgres://gfgsvyodgtjewt:ZGzmDpXe241rHK3bTnD3JkKhmj@ec2-107-22-197-152.compute-1.amazonaws.com:5432/d371fthq0lkgsb'
+    };
 	this.datasource="todos";
 	this.ormenabled="true";
 	this.ormsettings={
