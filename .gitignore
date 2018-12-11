@@ -22,4 +22,3 @@ application/webroot/WEB-INF/lib/lucee-server/context/*
 application/webroot/WEB-INF/lucee/*
 !application/webroot/WEB-INF/lucee/lucee-web.xml.cfm
 
-db*
